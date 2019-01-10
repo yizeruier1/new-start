@@ -1,0 +1,138 @@
+1、 css 超出盒子 长度 显示 ...
+多行：  display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;
+单行：  overflow: hidden;text-overflow:ellipsis;white-space: nowrap;
+
+多行换行问题，-webkit-box-orient: vertical;  属性打包后，页面没有。原因：自动补全css  的锅
+解决： /*! autoprefixer: off */
+        -webkit-box-orient: vertical;
+        /* autoprefixer: on */
+
+
+
+
+2、element-ui this.$loading， 如果页面有滚动条，页面的抖动问题，解决代码：
+html {
+      overflow-y: scroll;
+}
+:root {
+      overflow-y: auto;
+      overflow-x: hidden;
+}
+:root body {
+      position: absolute;
+}
+body {
+      width: 100vw;
+      overflow: hidden;
+}
+
+
+3、vue打包，util.js下      publicPath: '../../',         // 解决css的字体图标无法找到的问题
+
+4、element-ui  el-tree组件 getCheckedNodes 无法获取父元素节点  问题：  \node_modules\element-ui\lib\element-ui.common.js
+修改为：if ((child.checked || child.indeterminate) && (!leafOnly || leafOnly && child.isLeaf)) {       搜索：TreeStore.prototype.getCheckedNodes
+
+5、flex 下  文字适应  水平 垂直 居中  display:flex;justify-content:center;align-items:center;
+
+6、 input输入框focus状态下边框问题：    outline:none;background:transparent;border:none;outline:medium;
+
+7、  定位页面DOM 到当前可视区，替换hash定位   document.getElementById("test").scrollIntoView({ behavior: 'smooth' })
+
+8、  nginx  vue项目刷新页面，找不到路径问题      try_files $uri $uri/ /index.html;
+
+
+
+9、 element-ui  隐藏组件   滚动条组件     <el-scrollbar></el-scrollbar>
+设置一个高度，里面内容自动撑开       隐藏横向滚动条： .el-scrollbar__wrap {overflow-x: hidden!important;}
+
+
+
+10、 浏览器自动缓存请求的文件：    解决：  meta
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+
+
+
+
+11、 移动端浏览器 IOS  获取时间戳   getTime()    只能识别 / 分隔的时间，     例：    New Date('2018/09/18 15:32');
+
+
+12、 MCMS: content 上传 图片   IO错误 问题 --> 在 apache-tomcat-7.0.55 文件夹下  创建 temp 文件夹
+
+
+
+13、 IE下 请求返回的图片路径 图片不会动态改变问题， IE的请求缓存问题，  在请求后 拼接时间戳  解决
+
+
+
+14、 new Date().toLocaleTimeString();    ===   上午11:43:52
+
+
+15、 break 结束循环，不管几层 全部结束；          continue 结束本次循环  开始下一次循环             return 结束这个方法 返回一些东西
+
+
+
+16、清除 IE10+    input  自带 X 清除表单内容和 密码框 自带 眼睛      ::-ms-clear,::-ms-reveal{display:none;}
+
+
+17、清除IE下 自动给数字 加下划线       <meta name="format-detection" content="telephone=no,email=no,address=no">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
