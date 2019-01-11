@@ -80,7 +80,9 @@ body {
 
 
 
-
+18、typeof 检测数据类型时，null，array，object 返回都为 "object"，   a  instanceof  b  是判断 a是否在b的原型链上
+       console.log(Object.prototype.toString.call(12));//[object Number]         console.log(Object.prototype.toString.call(true));//[object Boolean]     可以准确判断
+       只有 object 原型上的 toString 会返回 //[object Boolean]，   Number.toString 返回  // "111"，   是因为  他们的toString方法被重写了
 
 
 
