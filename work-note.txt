@@ -85,7 +85,7 @@ body {
        只有 object 原型上的 toString 会返回 //[object Boolean]，   Number.toString 返回  // "111"，   是因为  他们的toString方法被重写了
 
 
-
+19、 改变  placeholder  字体颜色    input::-webkit-input-placeholder{color:red;}
 
 
 
