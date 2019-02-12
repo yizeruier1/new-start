@@ -54,7 +54,7 @@ def del_mysql(sql):
 server = flask.Flask(__name__) #创建一个flask对象
 
 #    登录
-@server.route('/login', methods=['get','post'])
+@server.route('/login', methods=['post'])
 def login():
     # username = str(request.values.get('username')) #获取参数
     # password = request.values.get('password')
@@ -80,7 +80,7 @@ def login():
 
 
 #    注册
-@server.route('/registor', methods=['get','post'])
+@server.route('/registor', methods=['post'])
 def registor():
     namez = str(request.json.get('name'))
     phonez = str(request.json.get('phone'))
@@ -145,7 +145,7 @@ def userlist():
 
 
 #删除一条记录
-@server.route('/deleuser', methods=['get', 'post', 'delete'])
+@server.route('/deleuser', methods=['delete'])
 def deleuser():
     id = request.args.get('id')
 
