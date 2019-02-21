@@ -1,0 +1,19 @@
+.nav{
+	display:block;
+	width:100px;
+	height:40px;
+	background-color:orange;
+	color:red;
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
+	text-decoration: none;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+
+.acnav{
+	background-color:#999;
+	color: #333;
+}
