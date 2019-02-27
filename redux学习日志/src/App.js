@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
 // 异步 ACTION  示例
 const delayAdd = () => (dispatch, getState) =>　{
   setTimeout(() => {
@@ -10,7 +9,6 @@ const delayAdd = () => (dispatch, getState) =>　{
 }
 
 class App extends Component {
-
   componentDidMount() {
     console.log(this.props)
   } 
@@ -19,14 +17,13 @@ class App extends Component {
     return (
       <div className="App">
         <h2>{this.props.person.name}的年龄为{this.props.person.age}</h2>
-        <button onClick={add}>next year</button>    
+        <button onClick={add}>next year</button>
         <button onClick={minus}>prev year</button>
         <button onClick={dela}>delay add</button>
       </div>
     );
   }
 }
-
 
 //  需要渲染的state数据
 function mapStateToProps(state) {

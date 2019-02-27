@@ -4,7 +4,7 @@ const person = {
     age: 18
 }
 
-//这是action
+//这是同步action
 // const increase = {
 //     type: 'add'
 // }

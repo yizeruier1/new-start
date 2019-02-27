@@ -4,11 +4,10 @@ import App from './App';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './redux';
-import thunk from 'redux-thunk';//引入异步中间件
+import thunk from 'redux-thunk';
 
 //创建store
 const store = createStore(reducer, applyMiddleware(thunk));
-
 
 ReactDOM.render(
     <Provider store={store}>
