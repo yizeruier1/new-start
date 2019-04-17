@@ -8,21 +8,20 @@ import User                                             from './pages/users'
 
 
 class App extends Component {
-
     // 路由匹配
   	render() {
-    	return (
-    		<Router>
-    			<Switch>
-    				<Route exact path="/" component={Login} />
-    				<Home>
-                        <Route path="/order" component={Order} />
-                        <Route path="/user" component={User} />
-                        <Route path="/home" component={List} />
-                    </Home>
-    			</Switch>
-    		</Router>
-    	);
+				return (
+						<Router>
+								<Switch>
+										<Route exact path="/" component={Login} />
+										<Home>
+												<Route path="/order" component={Order} />
+												<Route path="/user" component={User} />
+												<Route path="/home" component={List} />
+										</Home>
+								</Switch>
+						</Router>
+				);
   	}
 }
 
