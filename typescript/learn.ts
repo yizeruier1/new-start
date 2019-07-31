@@ -66,3 +66,71 @@ let arr2: arr = [1, 1, 2, 3, 5];
 
 
 
+//  在 TS 中声名 函数    可选参数 只能在最后面
+function sum(x: number, y: number, z: number = 1, a?: number): number{
+    return x + y + z
+}
+// => 用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型
+let sum1: (x: number, y: number) => number = function (x: number, y: number): number{
+    return x + y
+}
+
+console.log(sum(3, 4))
+console.log(sum1(3, 4))
+
+//   ...rest   获取剩余参数
+function mypush(arr: any[], ...items: any[]): void{
+    items.forEach(function (item) {
+        arr.push(item);
+    });
+    console.log(arr)
+}
+
+mypush([], 1, 2, 3, 4, 5)
+
+// 函数重载   允许一个函数重复定义，在调用时根据参数的不同  做不同的处理
+
+
+
+//  当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候    可以使用类型断言    来避免ts报错
+function getLength2(something: string | number): number {
+    // <类型>值   写法
+    if ((<string>something).length) {
+        return (<string>something).length;
+    } else {
+        return something.toString().length;
+    }
+
+    // 值 as 类型     写法   在react的jsx中   必须使用这种写法
+    // if ((something as string).length) {
+    //     return (something as string).length;
+    // } else {
+    //     return something.toString().length;
+    // }
+}
+
+
+
+//   类型别名 =>   使用type创建    主要用于联合类型
+type param = string | number | Person
+let usetype: param = 123
+
+// 用字符串也可以
+type EventNames = 'click' | 'scroll' | 'mousemove';
+function handleEvent(ele: Element, event: EventNames) {
+    ele.addEventListener(event, function(e: any): void{
+        // do something
+        console.log(event)
+    })
+}
+
+handleEvent(document.getElementById('hello'), 'click')
+
+
+
+// 枚举（Enum）类型用于取值被限定在一定范围内的场景，比如一周只能有七天，颜色限定为红绿蓝等    值会从第一个开始   从 1 开始递增
+enum Days { Sun, Mon, Tue, Wed, Thu, Fri, Sat };
+// Days["Sun"] === 0  true              console.log(Days[0] === "Sun"); // true
+// Days["Mon"] === 1  true              console.log(Days[1] === "Mon"); // true
+// Days["Tue"] === 2  true              console.log(Days[2] === "Tue"); // true
+// Days["Sat"] === 6  true              console.log(Days[6] === "Sat"); // true
