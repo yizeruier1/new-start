@@ -1,0 +1,63 @@
+@-webkit-keyframes shake {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale3d(1, 1, 1);
+
+    }
+
+    6% {
+        -webkit-transform: scale(.9) rotate(-8deg);
+        -webkit-transform: scale3d(1, 1, 1) rotate(0, 0, 1, -8deg);
+    }
+
+    18%,
+    30%,
+    42% {
+        -webkit-transform: scale(1.1) rotate(8deg);
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 8deg);
+
+    }
+
+    12%,
+    24%,
+    36%,
+    48% {
+        -webkit-transform: scale(1.1) rotate(-8deg);
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -8deg);
+
+    }
+
+    54% {
+        -webkit-transform: scale(1);
+        -webkit-transform: scale3d(1, 1, 1);
+    }
+
+    60% {
+        -webkit-transform: scale(1);
+        -webkit-transform: scale3d(1, 1, 1);
+    }
+
+
+
+
+    80% {
+        -webkit-transform: scale(1) translate(0px, 150px);
+        -webkit-transform: scale3d(1, 1, 1) translate3d(0px, 150px, 0);
+    }
+
+    90% {
+        -webkit-transform: scale(1) translate(0px, 130px);
+        -webkit-transform: scale3d(1, 1, 1) translate3d(0px, 130px, 0);
+    }
+
+    100% {
+        -webkit-transform: scale(1) translate(0px, 150px);
+        -webkit-transform: scale3d(1, 1, 1) translate3d(0px, 150px, 0);
+    }
+
+}
+
+.shake {
+    -webkit-animation: shake 1.2s linear;
+    -webkit-animation-fill-mode: forwards;
+}
