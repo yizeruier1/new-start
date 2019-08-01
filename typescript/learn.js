@@ -1,3 +1,16 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 // 基本数据类型
 var boo = true;
 var num = 123;
@@ -80,7 +93,7 @@ var usetype = 123;
 function handleEvent(ele, event) {
     ele.addEventListener(event, function (e) {
         // do something
-        console.log('clicked');
+        console.log(event);
     });
 }
 handleEvent(document.getElementById('hello'), 'click');
@@ -100,3 +113,40 @@ var Days;
 // Days["Mon"] === 1  true              console.log(Days[1] === "Mon"); // true
 // Days["Tue"] === 2  true              console.log(Days[2] === "Tue"); // true
 // Days["Sat"] === 6  true              console.log(Days[6] === "Sat"); // true
+// 类 相关
+// TypeScript class  有三种 -访问- 修饰符
+// 1、 public 修饰的属性或方法是公有的，可以在任何地方被访问到，默认所有的属性和方法都是 public
+// 2、 private 修饰的属性或方法是私有的，不能在声明它的类的外部访问
+// 3、 protected 修饰的属性或方法是受保护的，它和 private 类似，区别是它在子类中也是允许被访问的
+var Animal = /** @class */ (function () {
+    function Animal(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Animal.prototype.sayHi = function () {
+        console.log("hello I'm " + this.name);
+    };
+    return Animal;
+}());
+var Cat = new Animal('Cat', 18);
+console.log(Cat.name);
+console.log(Cat.sayHi());
+// abstract 用来声名抽象类   抽象类不允许被实例化     抽象类中的 抽象方法 必须 被子类实现
+var Animal1 = /** @class */ (function () {
+    function Animal1(name) {
+        this.name = name;
+    }
+    return Animal1;
+}());
+var Cat1 = /** @class */ (function (_super) {
+    __extends(Cat1, _super);
+    function Cat1() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    // 子类必须实现（implement）  sayHi方法
+    Cat1.prototype.sayHi = function () {
+        return "My name is " + this.name;
+    };
+    return Cat1;
+}(Animal1));
+var cat1 = new Cat1('Tom');

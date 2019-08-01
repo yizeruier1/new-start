@@ -1,3 +1,6 @@
+//  TS 主要是为了解决 JS 弱类型和没有命名空间，导致很难模块化，不适合开发大型程序
+
+
 // 基本数据类型
 let boo: boolean = true
 let num: number = 123
@@ -134,3 +137,91 @@ enum Days { Sun, Mon, Tue, Wed, Thu, Fri, Sat };
 // Days["Mon"] === 1  true              console.log(Days[1] === "Mon"); // true
 // Days["Tue"] === 2  true              console.log(Days[2] === "Tue"); // true
 // Days["Sat"] === 6  true              console.log(Days[6] === "Sat"); // true
+
+
+
+
+
+
+// 类 相关
+// TypeScript class  有三种 -访问- 修饰符
+// 1、 public 修饰的属性或方法是公有的，可以在任何地方被访问到，默认所有的属性和方法都是 public
+// 2、 private 修饰的属性或方法是私有的，不能在声明它的类的外部访问
+// 3、 protected 修饰的属性或方法是受保护的，它和 private 类似，区别是它在子类中也是允许被访问的
+
+class Animal {
+    public name: string;
+    private age: number;
+    public constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age
+    }
+
+    sayHi(): void{
+        console.log(`hello I'm ${this.name}`)
+    }
+}
+
+let Cat: Animal = new Animal('Cat', 18)
+console.log(Cat.name)
+console.log(Cat.sayHi())
+
+
+
+// abstract 用来声名抽象类   抽象类不允许被实例化     抽象类中的 抽象方法 必须 被子类实现
+abstract class Animal1 {
+    public name: string;
+    public constructor(name: string) {
+        this.name = name;
+    }
+    public abstract sayHi();
+}
+
+class Cat1 extends Animal1 {
+    // 子类必须实现（implements）  sayHi方法
+    public sayHi(): string {
+        return `My name is ${this.name}`
+    }
+}
+
+let cat1: Animal1 = new Cat1('Tom');
+
+
+
+
+// 类实现(implements)接口  ->  提取多个类的公共方法 为 一个接口（interfaces）   用 implements 关键字来实现
+interface Alarm {
+    alert(): string
+}
+
+interface Light {
+    lightOn()
+    lightOff()
+}
+
+class Car implements Alarm, Light {
+    alert() {
+        console.log('Car alert');
+        return '123'
+    }
+    lightOn() {
+        console.log('Car light on');
+    }
+    lightOff() {
+        console.log('Car light off');
+    }
+}
+
+
+
+
+// 泛型（Generics）是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
+function createArray<T>(length: number, value: T): Array<T> {
+    let result: T[] = [];
+    for (let i = 0; i < length; i++) {
+        result[i] = value;
+    }
+    return result;
+}
+
+createArray<string>(3, 'x');
