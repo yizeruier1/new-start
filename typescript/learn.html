@@ -8,9 +8,9 @@
     <title>Document</title>
     <style>
         .box{
-            width: 200px;
-            height: 200px;
-            background-color: orange;
+            width: 640px;
+            height: 274px;
+            background: url('chest.png') no-repeat center 0;
         }
         #hello{
             margin-top: 300px;
@@ -22,4 +22,11 @@
     <div id="hello">hello world</div>
 </body>
 <script src="./learn.js"></script>
+<script>
+    let box = document.querySelector('.box')
+
+    setTimeout(() => {
+        box.style.background = "url('chest.png') no-repeat center -274px"
+    }, 1200)
+</script>
 </html>
