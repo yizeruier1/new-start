@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    window.onload = function(){
+
+        let list = {
+            value: 1,
+            next: {
+                value: 2,
+                next: {
+                    value: 3,
+                    next: {
+                        value: 4,
+                        next: {
+                            value: 5,
+                            next: {
+                                value: 6,
+                                next: {
+                                    value: 7,
+                                    next: {
+                                        value: 8,
+                                        next: {
+                                            value: 9,
+                                            next: {
+                                                value: 10
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        const reverseList = () => {
+            if (!list.next) return { value: list.value }
+
+            let res
+            while (list.next) {
+                if (res) {
+                    res = ListNode(list.value, res)
+                } else {
+                    res = ListNode(list.value)
+                }
+                list = list.next
+            }
+            res = ListNode(list.value, res)
+            console.log(res)
+        }
+
+        function ListNode(value, next) {
+            return {
+                value,
+                next
+            }
+        }
+
+        reverseList()
+
+    }
+</script>
+</html>

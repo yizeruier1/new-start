@@ -10,53 +10,31 @@ const obj = {
     g: 6
 }
 
-const jsontostr = o => {
-    if(Object.keys(o).length  === 0){
-        return "{}"
-    }else{
-        let res = '{'
-        Object.keys(o).forEach((item, index) => {
-            let str = '"' + item + '"' + ":"
-            if(Object.prototype.toString.call(o[item]) === '[object Object]'){
-                str += jsontostr(o[item])
-                res += str
-            }else{
-                if(Object.prototype.toString.call(o[item]) === '[object String]'){
-                    str = str + '"' + o[item] + '"'
-                }else{
-                    str += o[item]
-                }
-                res += str
-            }
-            if(index < Object.keys(o).length - 1){
-                res += ","
-            }
-        })
-        return res + '}'
-    }
-}
-
-const obj = {
-    a: 1,
-    b: {
-        c: 2,
-        d: [3, 4, 5],
-        e: {
-            f: 'hello'
+function jsontostr(obj){
+    let type = typeof obj
+    // 不是 Object 直接返回
+    if (type !== 'object' || type === null){
+        if(/string|function|undefined/.test(type)){
+            obj = '"' + obj + '"'
         }
-    },
-    g: 6
-}
+        return String(obj)
+    } else {
+        let res = []
+        let isArr = (obj && obj.constructor === Array)
 
-function json2str(o) {
-    let arr = [];
-    const fmt = function(s) {
-        if(typeof s == 'object' && s !== null) return json2str(s); return /^(string)$/.test(typeof s) ? `"${s}"`: s;
+        for(k in obj){
+            let item = obj[k]
+            let types = typeof item
+            if (/string|function|undefined/.test(types)) {
+                item = '"' + item + '"'
+            } else if (types === 'object') {
+                item = jsontostr(item)
+            }
+
+            res.push(((isArr ? '' : '"') + k + (isArr ? ':' : '":')) + String(item))
+        }
+        return (isArr ? '[' : '{') + String(res) + (isArr ? ']' : '}')
     }
-    for (var i in o) arr.push(`"${i}":${fmt(o[i])}`)
-        return `{${arr.join(',')}}`
 }
 
-console.log(json2str(obj))
-
-// console.log(JSON.parse(jsontostr(obj)))
+jsontostr({b: undefined})
