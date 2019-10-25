@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+</head>
+<body>
+	
+</body>
+
+<script>
+
+	// 冒泡 排序
+	function sort(arr){
+		for(var i = 0; i < arr.length - 1; i++){
+			for(var j = 0; j < arr.length - 1 - i; j++){
+				if(arr[j] > arr[j + 1]){
+					var temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+				}
+			}
+		}
+
+		return arr;
+	}
+
+	// 次数 排序
+	function timesSort(arr){
+		//   判断数组成员
+		this.ifSort = function(){
+			for(var i = 0; i < arr.length; i++){
+				if(Object.prototype.toString.call(arr[i]) != '[object Number]'){
+					return false;
+				}
+			}
+			sort(arr);
+			return true;
+		}
+
+		// 保存结果数组
+		this.res = [];
+		
+		// 生成结果数组
+		this.sort = function(){
+			var times = 1;
+			for(var i = 0; i < arr.length; i++){
+				for(var j = i + 1; j < arr.length; j++){
+					if(arr[i] === arr[j]){
+						times += 1;
+					}else{
+						// 没有重复  直接结束本次 循环
+						j = arr.length;
+					}
+				}
+				
+				this.res.push({ value: arr[i], times: times });
+				// 跳到下一个 i
+				i = i + times - 1;
+				times = 1;
+			}
+
+			// 对结果数组  排序  出现次数多的  排前面
+			for(var i = 0; i < this.res.length - 1; i++){
+				for(var j = 0; j < this.res.length - 1 - i; j++){
+					if(this.res[j].times < this.res[j + 1].times){
+						var temp = this.res[j];
+						this.res[j] = this.res[j + 1];
+						this.res[j + 1] = temp;
+					}
+				}
+			}
+		}
+		
+		// 输出
+		if(this.ifSort()){
+			this.sort();
+			return this.res;
+		}else{
+			console.log('数组成员必须为Number!');
+			return false;
+		}
+	}
+
+	var arr2 = [1,2,3,4,4,5,5,5,6,6,6,6];
+	var result = new timesSort(arr2);
+	//  遍历输出
+	for(var i = 0; i < result.length; i++){
+		console.log(result[i].value + ' 出现了 ' + result[i].times + ' 次');
+	}
+
+</script>
+
+</html>

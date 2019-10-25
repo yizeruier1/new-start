@@ -1,0 +1,10 @@
+.paymentmanager{width: 1000px;height: auto;margin: 50px auto;min-height: 500px;}
+.paymentmanager>h6{padding-bottom: 20px;line-height: 30px; text-align: center;font-size: 24px;letter-spacing: -1px;color: #333333;}
+.question>h6{font-size: 16px;line-height: 20px;color: #333333;padding: 20px 0;}
+.question>p{font-size: 14px;line-height: 20px;color: #333333;}
+.question>p>span{padding: 0 20px;}
+.questionfir >p{padding: 8px 0;}
+.paymentmanager>p{padding: 10px 0;font-size: 14px;line-height: 20px;color: #333333;}
+.paymentmanager>p span{color: #3c78ff;padding: 0 5px;}
+.back{padding-bottom: 10px;}
+.back a img{cursor: pointer; width: 16px;height: 16px;}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js继承</title>
+</head>
+<body>
+	
+</body>
+
+<script>
+	
+	// 1、对象冒充， 构造函数使用 this 关键字给所有属性和方法赋值（即采用类声明的构造函数方式）。
+	var parent = function(name){
+		this.name = name;
+		this.sayHi = function(){
+			console.log('Hi ' + this.name + '!');
+		}
+	}
+
+	var children = function(name){
+		this.method = parent;
+		this.method(name);
+		// delete this.method;
+		this.getName = function(){
+			console.log(this.name);
+		}
+	}
+
+	var a = new parent('父级方法');
+	var b = new children('子类方法');
+
+	// a.sayHi();
+	// b.sayHi();
+	// b.getName();
+
+
+	// 2、原型链继承
+
+	var parent2 = function(){
+		this.name = 'jack';
+		this.sayHi = function(){
+			console.log('Hi ' + this.name + '!');
+		}
+	}
+
+	var children2 = function(){};
+	children2.prototype = new parent2();
+
+	var c = new parent2();
+	var d = new children2();
+
+	// c.sayHi();
+	// d.sayHi();
+
+
+	// 3、call 或 applay 继承
+
+	var parent3 = function(name){
+		this.name = name;
+		this.sayHi = function(){
+			console.log('Hi ' + this.name + '!');
+		}
+	}
+
+	var children3 = function(name){
+		parent3.call(this, name);
+		this.getName = function(){
+			console.log(this.name);
+		}
+	}
+
+	var e = new parent3('jack');
+	var f = new children3('rose');
+
+	// e.sayHi();
+	// f.sayHi();
+	// f.getName();
+
+
+
+	// 4、混合方式
+
+	var parent4 = function(name){
+		this.name = name;
+	}
+	parent4.prototype.sayHi = function(){
+		console.log('Hi ' + this.name + '!');
+	}
+
+	var children4 = function(name, age){
+		parent4.call(this, name);
+		this.getName = function(){
+			console.log(this.name);
+		}
+		this.age = age;
+	}
+	children4.prototype = new parent4();
+	children4.prototype.getAge = function(){
+		console.log(this.age);
+	}
+
+	var g = new parent4('jack');
+	var h = new children4('lili', 30);
+
+	// g.sayHi();
+	// h.sayHi();
+	// h.getName();
+	// h.getAge();
+
+
+	// 5、 Object.create
+
+	var parent5 = function(name){
+		this.name = name;
+	}
+	parent5.prototype.sayHi = function(){
+		console.log('Hi ' + this.name + '!');
+	}
+
+	var children5 = function(name, age){
+		parent5.call(this, name);
+		this.age = age;
+	}
+	children5.prototype = Object.create(parent5.prototype);
+	children5.prototype.constructor = children5;
+
+	children5.prototype.getAge = function(){
+		console.log(this.age);
+	}
+
+	var i = new parent5('jack');
+	var j = new children5('rose', 22);
+
+	// i.sayHi();
+	// j.sayHi();
+	// j.getAge();
+
+
+	// 6、ES6  Class extends
+
+	class parent6{
+		constructor(name, age){
+			this.name = name;
+			this.age = age;
+		}
+	}
+
+	class children6 extends parent6{
+		constructor(name, age, job){
+			super(name, age);
+			this.job = job;
+		}
+	}
+
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>timer</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    var i = 0;
+    var timer = null;
+
+    timer = setInterval(function(){
+        i += 1;
+        console.log(i);
+        if(i >= 3){
+            clearInterval(timer);
+            timer = null;
+            console.log(timer);
+        }
+        console.log("lll:"+timer);
+    }, 1000);
+</script>
+
+</html>

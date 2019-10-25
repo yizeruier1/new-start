@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body style="font-size:60px;">
+    1231212
+</body>
+
+<script>
+    
+    for(let i = 1; i <= 5; i++){
+        (function(j){
+            setTimeout(function(){
+                console.log(j)
+            }, j * 1000)
+        })(i)
+    }
+
+</script>

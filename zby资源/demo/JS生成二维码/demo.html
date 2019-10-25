@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>erweima</title>
+	<style>
+		#demo{width:200px;height:200px;margin-left:30px;margin-right:30px;}
+	</style>
+</head>
+<body>
+
+	<div id="demo">
+
+	</div>
+
+	<!-- <input type="text" id="qwe" value="www.baidu.com"> -->
+
+
+</body>
+<script src="QRcode.js"></script>
+<script>
+
+	window.onload = function(){
+		// (function(){
+		// 	new QRCode(document.getElementById('demo'), '我是群里最帅的！');
+		// })();
+		var iconbase64 = 'iVBORw0KGgoAAAANS';
+		(function() {
+			var qrcode = new QRCode('demo', {
+				text: 'wxp://f2f1w5JakXFKJ-A_4vEazH6T-u48Hkgz-ZQT',
+				width: 198,
+				height: 198,
+				colorDark : '#000000',
+				colorLight : '#ffffff',
+				correctLevel : QRCode.CorrectLevel.H
+			});
+		})();
+
+
+
+	}
+
+</script>
+</html>

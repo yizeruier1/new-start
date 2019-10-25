@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>change - font</title>
+    <style>
+        @font-face {
+            font-family: 'PF-Heavy';
+            src: url('./font/PingFang-Heavy.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'PF-Medium';
+            src: url('./font/PingFang-Medium.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'webfont';
+            font-display: swap;
+            src: url('//at.alicdn.com/t/webfont_4ey83c9o2xn.eot'); /* IE9*/
+            src: url('//at.alicdn.com/t/webfont_4ey83c9o2xn.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            /* url('//at.alicdn.com/t/webfont_4ey83c9o2xn.woff2') format('woff2'), */
+            /* url('//at.alicdn.com/t/webfont_4ey83c9o2xn.woff') format('woff'), chrome、firefox */
+            url('./font/webfont.ttf') format('truetype'),/* chrome、firefox、opera、Safari, Android,
+            iOS 4.2+ */
+            url('//at.alicdn.com/t/webfont_4ey83c9o2xn.svg#Alibaba-PuHuiTi-Bold') format('svg'); /* iOS 4.1- */
+        }
+
+        .heavy{
+            letter-spacing: 2px;
+            font-family: 'PF-Heavy';
+            color: #333;
+            font-size: 26px;
+        }
+        .medium{
+            letter-spacing: 2px;
+            font-family: 'PF-Medium';
+            color: #333;
+            font-size: 26px;
+        }
+        .puhui{
+            letter-spacing: 2px;
+            font-family: 'webfont';
+            color: #333;
+            font-size: 26px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="heavy">
+        收集进度0123456789/Ss
+    </div>
+
+    <div class="medium">
+        收集进度0123456789/Ss
+    </div> -->
+    <div class="puhui">
+        年级 0123456789
+    </div>
+</body>
+</html>

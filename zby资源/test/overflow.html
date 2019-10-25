@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>overflow</title>
+	<style>
+		
+		.mid{
+			margin:0 102px;
+			background-color:red;
+			height: 100px;
+		}
+		.left{
+		    position: absolute;
+		    width: 100px;
+		    background-color: orange;
+		    left: 0;
+		    top: 0;
+		    height: 100px;
+		}
+		.right{
+		    position: absolute;
+		    width: 100px;
+		    top: 0;
+		    right: 0;
+		    background-color: orange;
+		    height:100px;
+		}
+		
+
+	</style>
+</head>
+<body style="margin:0;padding:0;position:relative;">
+
+	<div class="mid"></div>
+	<div class="left"></div>
+	<div class="right"></div>
+
+</body>
+<script>
+	var a = {
+		name: 'nick',
+		age: 18
+	};
+
+	var b = JSON.parse(JSON.stringify(a));
+
+
+	b.name = 'asdasd';
+	console.log(a);
+</script>
+</html>

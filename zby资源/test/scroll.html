@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo{
+            width: 200px;
+            height: 2000px;
+            margin: 0 auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+</body>
+<script>
+    window.onload = function(){
+        const dom = document.querySelector('.demo')
+        window.onscroll = function(){
+            console.log(document.documentElement.scrollTop)
+        }
+        console.log(getComputedStyle(dom).width)
+        console.log(history)
+        console.log(location)
+        console.log(navigator)
+        console.log(screen)
+    }
+</script>
+</html>

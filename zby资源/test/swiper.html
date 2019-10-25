@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{width:470px; height: 150px; background:url(images/0.jpg) no-repeat; margin:50px auto ; position:relative;
+        perspective: 1200px;}
+        #box .pag1{width: 50%; height: 100%; position: absolute; top: 0; right: 0; transform-style:preserve-3d;
+        transition:1s all ease; z-index:2; transform-origin:left center ;}
+        #box .pag1 span{width: 100%; height: 100%; position: absolute; top: 0; left: 0;}
+        .front{background: url(images/0.jpg) no-repeat right top; transform: translateZ(1.1px);}
+        .back{background: url(images/1.jpg) no-repeat left top; transform: translateZ(-1.1px) scale(-1,1);}
+        .pag2{width:50%; position:absolute; right:0; top:0; height:100%; background:url(images/1.jpg) no-repeat right
+        top; z-index:1;}
+    </style>
+
+    <script>
+        window.onload = function(){
+            var oBox = document.getElementById('box');
+            var oPag = document.querySelector('#box .pag1');
+            var oFront = document.querySelector('#box .pag1 .front');
+            var oBack = document.querySelector('#box .pag1 .back');
+            var oPag2 = document.querySelector('#box .pag2');
+
+            var iNow=0;
+            var bReady=true;
+            oBox.onclick = function(){
+                if(bReady==false) return;
+                bReady=false;
+
+                iNow++;
+                oPag.style.transition = '1s all ease';
+                oPag.style.transform = 'rotateY(-180deg)';
+
+                oPag.addEventListener('transitionend',function(){
+                    oPag.style.transition = 'none';
+                    oPag.style.transform = 'rotateY(0deg)';
+
+                    oFront.style.backgroundImage = oBox.style.backgroundImage = 'url(images/'+iNow%5+'.jpg)'; //5有几张banner就%几
+                    oBack.style.backgroundImage = oPag2.style.backgroundImage = 'url(images/'+(iNow+1)%5+'.jpg)';
+                    bReady=true;
+                },false);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align:center; padding-top:40px">点击查看效果</div>
+
+
+    <div id="box" style="background-image: url(&quot;images/3.jpg&quot;);">
+        <div class="pag1" style="transition: none 0s ease 0s; transform: rotateY(0deg);">
+            <span class="front" style="background-image: url(&quot;images/3.jpg&quot;);"></span>
+            <span class="back" style="background-image: url(&quot;images/4.jpg&quot;);"></span>
+        </div>
+        <div class="pag2" style="background-image: url(&quot;images/4.jpg&quot;);"></div>
+    </div>
+
+    <div style="width:200px;height:200px;background-color:red;padding:20px;">
+
+    </div>
+</body>
+</html>

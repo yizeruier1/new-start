@@ -1,0 +1,29 @@
+body{background-color: #f1f1f1;}
+
+.question-box{width: 100%;height: auto;min-height: 400px;margin-top: 10px;background-color: #fff; padding-bottom: 180px;}
+.question-item{width: 1000px; height: auto;min-height: 400px;margin: 0 auto;}
+
+.FAQs {font-weight: 700; font-size: 36px;color: #000;padding: 30px 0 20px;}
+
+.question-con{width: 100%;height: auto;display: flex;justify-content: space-between;align-items: flex-start;}
+
+.left-con{width: 35%;height: auto;}
+.right-con{width: 65%;height: auto;}
+
+.left-con  li{cursor: pointer; font-size: 24px;color: #333;}
+.left-con  li~li{padding-top: 20px;}
+.left-con  > .active{color: #3c78ff;}
+
+.hidden{display: none;height: 0px;}
+.right-con div ul li{cursor: pointer; border-bottom:solid 1px #ebebeb; padding: 17px 0;}
+.right-con div ul li .ans{margin-top: 20px;}
+.tit{display: flex;justify-content: space-between;align-items: flex-start;}
+.tit p{font-size: 16px;color: #333333;}
+.tit img{height: auto;width: 15px;}
+.rotate{  transition: 0.3s;-webkit-transform: rotateZ(180deg);-moz-transform: rotateZ(180deg);-o-transform: rotateZ(180deg);-ms-transform: rotateZ(180deg);transform: rotateZ(180deg);}
+.ans{font-size: 16px;line-height: 20px;color: #7a7a7a;width: 100%;min-height: 20px;height: auto;}
+
+.right-con div ul li .none{margin-top: 0;}
+.right-con div ul li .none span{display: inline-block;margin: 0 30px;}
+
+.right-con div ul li .p{margin-top: 0;}

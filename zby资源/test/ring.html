@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .mid{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            position: fixed;
+            left: calc(50% - 100px);
+            top: calc(50% - 100px);
+            writing-mode: vertical-lr;
+        }
+    </style>
+</head>
+<body>
+    <!-- <canvas id="canvas" width="300" height="300"></canvas> -->
+    <div class="mid">
+        asdasd
+    </div>
+</body>
+<script>
+    function drawCanvas(percent) {
+        //canvas进度条
+        var canvas = document.getElementById('canvas'),
+            ctx = canvas.getContext("2d"),
+            circleX = canvas.width / 2, //中心x坐标
+            circleY = canvas.height / 2, //中心y坐标
+            radius = 100, //圆环半径
+            lineWidth = 5; //圆形线条的宽度
+
+        //画弧线
+        ctx.beginPath();
+        //ctx.moveTo(cx, cy + r); // 从圆形底部开始画
+        ctx.lineWidth = lineWidth;
+        // 渐变色 - 可自定义
+        var linGrad = ctx.createLinearGradient(
+            circleX - radius - lineWidth, circleY, circleX + radius + lineWidth, circleY
+        );
+        linGrad.addColorStop(0.0, '#06a8f3');
+        //linGrad.addColorStop(0.5, '#9bc4eb');
+        linGrad.addColorStop(1.0, '#00f8bb');
+        ctx.strokeStyle = linGrad;
+
+        //圆弧
+        ctx.arc(
+            circleX, circleY, radius,
+            0,
+            Math.PI * 2,
+            false
+        );
+        ctx.stroke();
+    }
+
+        drawCanvas();
+</script>
+</html>
