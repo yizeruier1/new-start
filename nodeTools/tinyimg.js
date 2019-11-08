@@ -8,7 +8,7 @@ const imgs = ['jpg', 'jpeg', 'png', 'gif']
 // 单个 key 可以压缩 500 张图片  注册 key -> https://tinypng.com/developers
 tinify.key = "JfMC1z1Y5dVpqXwNByBqq5kDjTWrlN96"
 
-const main = (filePath, deep) => {
+const main = (filePath, deep = true) => {
     fs.readdir(filePath, (err, files) => {
         if(err) throw new Error('获取文件目录失败')
 
@@ -46,4 +46,4 @@ let filePath = path.resolve('./assert')
 // deep 表示 深度压缩， false -> 只压缩当前层级目录下的图片，true -> 压缩包括所有子目录    默认为 true
 // usage -> 安装 tinify，cnpm i tinify 或 yarn tinify， 不要加 --S 或 --D  会污染 package.json
 // usage -> 修改 路径，  运行 该文件  node tinyimg.js
-main(filePath, deep = true)
+main(filePath)
