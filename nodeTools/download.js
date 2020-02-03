@@ -13,7 +13,7 @@ function downloadFile(uri, callback){
     req.pipe(stream).on('close', callback)
 }
 
-var fileUrl  = 'https://cdn.pixabay.com/photo/2019/11/03/01/56/landscape-4597742_1280.jpg';
+var fileUrl  = 'http://vd3.bdstatic.com/mda-jhiiz02vj3tneats/sc/mda-jhiiz02vj3tneats.mp4';
 // var fileUrl = 'https://baobao-3d.bj.bcebos.com/16-0-205.shuimian.mp4'
 downloadFile(fileUrl, function(){
     console.log('下载完毕')
